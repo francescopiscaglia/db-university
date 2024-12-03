@@ -44,7 +44,7 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - last_name | VARCHAR(100) - NOT NULL
 - email | VARCHAR(100) - NOT NULL - UNIQUE
 - phone_number | VARCHAR(20) - NOT NULL
-- cources_id
+- courses_id
 
 ### Exams
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
@@ -55,7 +55,13 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
 - first_name | VARCHAR(100) - NOT NULL
 - last_name | VARCHAR(100) - NOT NULL
+- email | VARCHAR(100) - NOT NULL - UNIQUE
+- phone_number | VARCHAR(20) - NOT NULL
 - course_of_degree_id
+
+### Student Exams
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- student_id
 - exam_id
 - vote | TINYINT(2) - NOT NULL
 
