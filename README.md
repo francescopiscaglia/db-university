@@ -13,4 +13,50 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 -->
 
 
+## Table name:
+- departments
+- cources_of_degree
+- courses
+- teachers
+- exams
+- students
+- student_exams
+
+## Tables:
+
+### Departments
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- name | VARCHAR(200) - NOT NULL
+
+### Courses of Degree
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- name | VARCHAR(200) - NOT NULL
+- department_id 
+
+### Courses
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- name | VARCHAR(200) - NOT NULL
+- course_of_degree_id 
+
+### Teachers
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- first_name | VARCHAR(100) - NOT NULL
+- last_name | VARCHAR(100) - NOT NULL
+- email | VARCHAR(100) - NOT NULL - UNIQUE
+- phone_number | VARCHAR(20) - NOT NULL
+- cources_id
+
+### Exams
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- date | DATE - NOT NULL
+- course_id
+
+### Students
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- first_name | VARCHAR(100) - NOT NULL
+- last_name | VARCHAR(100) - NOT NULL
+- course_of_degree_id
+- exam_id
+- vote | TINYINT(2) - NOT NULL
+
 
