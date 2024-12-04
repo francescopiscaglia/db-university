@@ -27,16 +27,30 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 ### Departments
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
 - name | VARCHAR(200) - NOT NULL
+- website
+- phone
+- email
 
-### Courses of Degree
-- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
-- name | VARCHAR(200) - NOT NULL
-- department_id 
 
-### Courses
+### Courses of Degree (one to many => departments)
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- department_id | FOREIGN KEY
 - name | VARCHAR(200) - NOT NULL
-- course_of_degree_id 
+- description | TEXT
+- period | VARCHAR(200) - NOT NULL
+
+
+### Courses (many to many => teachers)
+- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- course_of_degree_id | FOREIGN KEY
+- name | VARCHAR(200) - NOT NULL
+- description | TEXT
+
+
+## Pivot: course teacher
+- course_id | FOREIGN KEY
+- teacher_id | FOREIGN KEY
+
 
 ### Teachers
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
@@ -44,25 +58,29 @@ per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memoriz
 - last_name | VARCHAR(100) - NOT NULL
 - email | VARCHAR(100) - NOT NULL - UNIQUE
 - phone_number | VARCHAR(20) - NOT NULL
-- courses_id
+
 
 ### Exams
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- course_id | FOREIGN KEY
 - date | DATE - NOT NULL
-- course_id
+- hour | TIME - NOT NULL
 
-### Students
+
+## Pivot: students exams
+- student_id
+- exam_id
+- vote | TINYINT(2) - NOT NULL
+
+
+### Students (one to many => cources_of_degree)
 - id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
+- course_of_degree_id | FOREIGN KEY
 - first_name | VARCHAR(100) - NOT NULL
 - last_name | VARCHAR(100) - NOT NULL
 - email | VARCHAR(100) - NOT NULL - UNIQUE
 - phone_number | VARCHAR(20) - NOT NULL
-- course_of_degree_id
+- registration_number | VARCHAR(20) - NOT NULL - UNIQUE
 
-### Student Exams
-- id | BIGINT - AUTO_INCREMENT - PRIMARY KEY
-- student_id
-- exam_id
-- vote | TINYINT(2) - NOT NULL
 
 
